@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Rendering Context in a Template</h1>
+    <p>This page demonstrates how to do requests from the backend(database) to be rendered to the frontend (or at least that's my
+    understanding).</p>
+
+    <h2>Using Context Dictionary</h2>
+    <p>
+        {{my_text}}, {{my_number}}
+    </p>
+
+    <p>
+        This is how you make a list show. THe first list is normally listed in HTML, the second one is listed in
+        django form ting.
+    </p>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+
+    <p> Now for the Django loop, making sure it is connected to the context dictionary</p>
+
+    <ul>
+        {% for my_sub_item in my_list %}
+            {% if my_sub_item == 3 %}
+                <li>{{ forloop.counter }} - {{ my_sub_item|add:22 }}</li>
+            {% elif my_sub_item == "abc" %}
+                <li>Conditional Statements in Django</li>
+            {% else %}
+                <li>{{ forloop.counter }} - {{ my_sub_item }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+{% endblock %}

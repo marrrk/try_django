@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>In app: {{object.title}}</h1>
+    <p>This is how to output stuff from the database</p>
+    <p>{{object.description}}</p>
+    <p>{{object.price}}</p>
+    <p>{{object.summary}}</p>
+
+    <form action="." method="POST"> {% csrf_token %}
+         <a href="{{ instance.get_absolute_url }}">Update Product</a>
+    </form>
+{% endblock %}

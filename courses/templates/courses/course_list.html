@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Welcome to the Courses Page</h2>
+    <p>The following is the list of Courses currently in the database:</p>
+    {% for instance in object_list %}
+    <p>{{ instance.id }} - <a href="{{ instance.get_absolute_url }}">{{ instance.title }}</a></p>
+    {% endfor %}
+
+{% endblock %}
